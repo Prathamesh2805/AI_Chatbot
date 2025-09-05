@@ -49,7 +49,7 @@ if text:
         # ✅ Pass the API key directly
         llm = ChatGroq(
             api_key=GROQ_API_KEY,
-            model="llama-3.1-70b-versatile",
+            model="llama-3.1-8b-instant",
             temperature=0,
             max_retries=2,
         )
