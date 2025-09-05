@@ -53,7 +53,7 @@ if file is not None:
         if user_query:
             match = vector_store.similarity_search(user_query)
             llm = ChatGroq(
-                model="deepseek-r1-distill-llama-70b",
+                model="llama-3.1-8b-instant",
                 temperature=0,
                 max_retries=2,
             )
