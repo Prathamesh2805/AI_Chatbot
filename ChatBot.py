@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import os
 from PyPDF2 import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
@@ -7,6 +8,8 @@ from langchain_community.vectorstores import FAISS
 from langchain_groq import ChatGroq
 from langchain.chains.question_answering import load_qa_chain
 
+# Load Groq API key from Streamlit secrets
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 # Load Groq API key from Streamlit secrets
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 
@@ -59,6 +62,11 @@ if text:
         # Remove <think> tags if present
         import re
         response = re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL).strip()
+        # Remove <think> tags if present
+        import re
+        response = re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL).strip()
 
+        st.subheader("Answer")
+        st.write(response)
         st.subheader("Answer")
         st.write(response)
